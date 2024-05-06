@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Notas</title>
+</head>
+<body>
+    <table> 
+        <thead>
+            <th>Fecha</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+        </thead>
+
+        <tbody>
+            {% for nota in notas %}
+            <tr >
+                <td>{{ nota.fecha }}</td>
+                <td>{{ nota.titulo }}</td>
+                <td>{{ nota.descripción }}</td>
+                <td>
+                    <div>
+                        <form action="{{ url_for('actualizar_notas', nota_id=nota.id) }}", method="get" class="mr-6">
+                            <button type="submit">Actualizar</button>
+                        </form>
+                        <form action="/eliminar_nota" method="post">
+                            <input type="hidden" name="nota_id" value="{{nota.id}}">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/cargar_notas">Agregar nueva nota</a>
+</body> 
+</html>

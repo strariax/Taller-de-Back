@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Notas</title>
+</head>
+<body>
+    <!--Especifica la URL a la que se enviarán los datos del formulario cuando se envíe -->
+    <form action="/cargar_notas" method="post">
+        <div>
+            <!--Label se utiliza para asociar el input con el texto descriptivo.. al hacer click en el nombre se enfocaria en el campo de entrada de texto-->
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha" placeholder="dd/mm/yyyy" required>
+            <!-- Type tipo / name nombre del campo de entrada / id hace refencia al label / value es el valor del campo de entrada-->
+        </div>
+
+        <div>
+            <label for="titulo">Titulo</label>
+            <input type="text" id="titulo" name="titulo" required>
+        </div>
+
+        <div>
+            <label for="descripción">Descripción</label>
+            <textarea id="descripción" name="descripción" required></textarea>
+        </div>
+
+        <input type="submit" value="Cargar">
+        <a href="/ver_notas">Ver mis notas</a>
+    </form>
+    
+</body>
+</html>
